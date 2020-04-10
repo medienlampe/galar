@@ -1,3 +1,7 @@
 /vendor/
 
+# Some files should never be commited.
+/.sock/
+/docker/tls/*
+!/docker/tls/.keep
 .env

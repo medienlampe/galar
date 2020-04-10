@@ -1,0 +1,22 @@
+version: "2.3"
+services:
+  galar.php.local:
+    build:
+      dockerfile: ./docker/Dockerfile
+      target: galar-api-php-dev
+      context: .
+    volumes:
+      - .:/galar
+      - $SSH_AUTH_SOCK:$SSH_AUTH_SOCK
+    environment:
+      - SSH_AUTH_SOCK
+  galar.web.local:
+    build:
+      dockerfile: ./docker/nginx/Dockerfile
+      target: galar-api-nginx-prod
+      context: .
+    ports:
+      - "8443:443"
+    volumes:
+      - ./docker/tls:/etc/nginx/conf.d/
+      - ./docker/nginx/galar.conf:/etc/nginx/conf.d/default.conf
