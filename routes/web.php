@@ -14,5 +14,5 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return response()->json(["message" => $router->app->version()]);
 });

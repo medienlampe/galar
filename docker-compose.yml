@@ -6,6 +6,7 @@ services:
       target: galar-api-php-dev
       context: .
     volumes:
+      - ./.sock:/sock
       - .:/galar
       - $SSH_AUTH_SOCK:$SSH_AUTH_SOCK
     environment:
@@ -18,5 +19,6 @@ services:
     ports:
       - "8443:443"
     volumes:
+      - ./.sock:/sock
       - ./docker/tls:/etc/nginx/conf.d/
       - ./docker/nginx/galar.conf:/etc/nginx/conf.d/default.conf
