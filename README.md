@@ -1,2 +1,2 @@
-# galar
-Lumen based backend for Fjalar app
+# Galar
+Lumen based backend for Fjalar app.
